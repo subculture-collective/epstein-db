@@ -1,0 +1,39 @@
+{
+  "name": "@epstein-db/extraction",
+  "version": "1.0.0",
+  "description": "Entity extraction pipeline for Epstein Files Database",
+  "type": "module",
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsx watch src/index.ts",
+    "extract:documents": "tsx src/scripts/extract-documents.ts",
+    "extract:entities": "tsx src/scripts/extract-entities.ts",
+    "deduplicate": "tsx src/scripts/deduplicate.ts",
+    "load:crossref": "tsx src/scripts/load-crossref.ts",
+    "match:crossref": "tsx src/scripts/match-crossref.ts",
+    "calculate:layers": "tsx src/scripts/calculate-layers.ts",
+    "sync:neo4j": "tsx src/scripts/sync-neo4j.ts",
+    "pipeline": "npm run extract:documents && npm run extract:entities && npm run deduplicate && npm run calculate:layers && npm run sync:neo4j",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.24.0",
+    "@neondatabase/serverless": "^0.9.0",
+    "better-sqlite3": "^11.0.0",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.0",
+    "neo4j-driver": "^5.19.0",
+    "openai": "^4.47.0",
+    "p-limit": "^5.0.0",
+    "pg": "^8.11.5",
+    "typesense": "^1.8.2",
+    "zod": "^3.23.0"
+  },
+  "devDependencies": {
+    "@types/better-sqlite3": "^7.6.10",
+    "@types/node": "^20.12.0",
+    "@types/pg": "^8.11.5",
+    "tsx": "^4.9.0",
+    "typescript": "^5.4.0"
+  }
+}
