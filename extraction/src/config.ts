@@ -5,7 +5,7 @@ dotenv.config();
 
 const configSchema = z.object({
   // Database
-  DATABASE_URL: z.string().default('postgresql://epstein:epstein_dev@localhost:5432/epstein'),
+  DATABASE_URL: z.string().default('postgresql://epstein:epstein_dev@localhost:5434/epstein'),
   NEO4J_URI: z.string().default('bolt://localhost:7687'),
   NEO4J_USER: z.string().default('neo4j'),
   NEO4J_PASSWORD: z.string().default('neo4j_dev'),
